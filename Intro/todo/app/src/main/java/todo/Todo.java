@@ -6,4 +6,10 @@ public class Todo {
     public static void main(String[] args) {
 
     }
+
+    public ArrayList<String> addTask(String task) {
+        tasks.add(task);
+        return tasks;
+
+    }
 }
