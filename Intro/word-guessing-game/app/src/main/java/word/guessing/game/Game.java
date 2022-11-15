@@ -11,6 +11,11 @@ public class Game {
 
     }
     public String getWordToGuess(String word) {
-        return word;
+        StringBuilder sb = new StringBuilder(word);
+
+        for (int i = 1; i < word.length(); i++) {
+            sb.replace(i, word.length(), "_" );
+        }
+        return sb.toString();
     }
 }

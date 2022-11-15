@@ -14,6 +14,6 @@ public class GameTest {
     @Test public void testGetsWordToGuess2() {
         Game game = new Game("Makers");
         String word = "Makers";
-        assertEquals(game.getWordToGuess(word), word);
+        assertEquals(game.getWordToGuess(word), "M_____");
     }
 }
