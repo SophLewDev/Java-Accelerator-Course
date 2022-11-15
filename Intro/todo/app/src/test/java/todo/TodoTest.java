@@ -18,4 +18,18 @@ public class TodoTest {
         tasks.add("Cleaning");
         assertEquals("adds task Cleaning to array list", tasks, todo.addTask("Cleaning"));
     }
+
+    @Test public void shouldGetTasks() {
+        Todo todo = new Todo();
+        ArrayList<String> tasks = new ArrayList<String>();
+        tasks.add("Cleaning");
+        tasks.add("Brushing");
+
+        todo.addTask("Cleaning");
+        todo.addTask("Brushing");
+
+        assertEquals("should show all tasks stored", tasks, todo.getTasks());
+
+
+    }
 }
