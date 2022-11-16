@@ -4,7 +4,11 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
 public class GameTest {
+
     @Test public void testGetsWordToGuess1() {
         Game game = new Game();
         String word = "B_____";
