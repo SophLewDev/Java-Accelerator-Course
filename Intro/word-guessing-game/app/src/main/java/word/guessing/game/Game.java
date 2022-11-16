@@ -12,7 +12,7 @@ public class Game {
     public static void main(String[] args) {
 
     }
-    public String getWordToGuess(String word) {
+    public String getWordToGuess() {
         StringBuilder sb = new StringBuilder(word);
 
         for (int i = 1; i < word.length(); i++) {
