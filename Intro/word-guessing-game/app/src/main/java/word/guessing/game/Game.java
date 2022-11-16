@@ -3,10 +3,8 @@ package word.guessing.game;
 import java.lang.*;
 
 public class Game {
-
-    public Game(String word) {
-
-    }
+    Integer attemptsLeft = 10;
+    public Game(String word) {}
     public static void main(String[] args) {
 
     }
