@@ -14,10 +14,21 @@ public class Game {
 
     }
     public String getWordToGuess() {
-        StringBuilder sb = new StringBuilder(word);
+        StringBuilder sb = new StringBuilder();
 
-        for (int i = 1; i < word.length(); i++) {
-            sb.replace(i, word.length(), "_" );
+        for (int i = 0; i < this.word.length(); i++) {
+            Character currentLetter = word.charAt(i);
+            if (i == 0) {
+                // first letter is always shown
+                sb.append(currentLetter);
+            } else {
+                // show letter only if it was already guessed
+                if (lettersGuessed.indexOf(currentLetter) != -1) {
+                    sb.append(currentLetter);
+                } else {
+                    sb.append("_");
+                }
+            }
         }
         return sb.toString();
     }

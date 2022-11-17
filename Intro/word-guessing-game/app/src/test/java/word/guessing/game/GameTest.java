@@ -42,13 +42,13 @@ public class GameTest {
 
         assertEquals(game.getWordToGuess(), "D________");
     }
-    @Test public void returnsTrueIfLetterexistsInWord() {
+    @Test public void returnsTrueIfLetterExistsInWord() {
         WordChooser mockedChooser = mock(WordChooser.class);
         when(mockedChooser.getRandomWordFromDictionary()).thenReturn("DEVELOPER");
 
         Game game = new Game(mockedChooser);
 
-        assertEquals(game.guessLetter('D'), true);
+        assertEquals(game.guessLetter('E'), true);
 
     }
     @Test public void returnsFalseIfLetterDoesNotexistInWord() {
@@ -61,5 +61,20 @@ public class GameTest {
         assertEquals(game.attemptsLeft, Integer.valueOf(9));
 
     }
+    @Test public void getsWordAfterGuessingOneLetterCorrect() {
+        WordChooser mockedChooser = mock(WordChooser.class);
+        when(mockedChooser.getRandomWordFromDictionary()).thenReturn("DEVELOPER");
 
+        Game game = new Game(mockedChooser);
+        assertEquals(game.guessLetter('E'), true);
+        assertEquals(game.getWordToGuess(), "DE_E___E_");
+    }
+    @Test public void getsWordAfterNotGuessingLetterCorrect() {
+        WordChooser mockedChooser = mock(WordChooser.class);
+        when(mockedChooser.getRandomWordFromDictionary()).thenReturn("DEVELOPER");
+
+        Game game = new Game(mockedChooser);
+        assertEquals(game.guessLetter('X'), false);
+        assertEquals(game.getWordToGuess(), "D________");
+    }
 }
