@@ -77,4 +77,32 @@ public class GameTest {
         assertEquals(game.guessLetter('X'), false);
         assertEquals(game.getWordToGuess(), "D________");
     }
+    @Test public void gameIsOver() {
+        WordChooser mockedChooser = mock(WordChooser.class);
+        when(mockedChooser.getRandomWordFromDictionary()).thenReturn("DEVELOPER");
+
+        Game game = new Game(mockedChooser);
+        game.guessLetter('X');
+        game.guessLetter('X');
+        game.guessLetter('X');
+        game.guessLetter('X');
+        game.guessLetter('X');
+        game.guessLetter('X');
+        game.guessLetter('X');
+        game.guessLetter('X');
+        game.guessLetter('X');
+        game.guessLetter('X');
+        assertEquals(game.isGameLost(), true);
+    }
+
+    @Test public void gameIsNotOver() {
+        WordChooser mockedChooser = mock(WordChooser.class);
+        when(mockedChooser.getRandomWordFromDictionary()).thenReturn("DEVELOPER");
+
+        Game game = new Game(mockedChooser);
+        game.guessLetter('X');
+        game.guessLetter('X');
+        game.guessLetter('X');
+        assertEquals(game.isGameLost(), false);
+    }
 }

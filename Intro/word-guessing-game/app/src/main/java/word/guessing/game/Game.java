@@ -42,4 +42,13 @@ public class Game {
             return false;
         }
     }
+
+    public Boolean isGameLost() {
+        if (attemptsLeft < 1) {
+            System.out.println("You've lost, try again!");
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
