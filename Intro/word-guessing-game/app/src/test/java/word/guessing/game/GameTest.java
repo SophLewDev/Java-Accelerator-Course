@@ -16,14 +16,6 @@ public class GameTest {
 
         assertEquals(game.getWordToGuess(), "D________");
     }
-    @Test public void testGetsWordToGuess2() {
-        WordChooser mockedChooser = mock(WordChooser.class);
-        when(mockedChooser.getRandomWordFromDictionary()).thenReturn("DEVELOPER");
-
-        Game game = new Game(mockedChooser);
-
-        assertEquals(game.getWordToGuess(), "D________");
-    }
     @Test public void gameIsCreatedWithRightAttempts() {
         WordChooser mockedChooser = mock(WordChooser.class);
         when(mockedChooser.getRandomWordFromDictionary()).thenReturn("DEVELOPER");
