@@ -7,30 +7,16 @@ public class Game {
     Integer attemptsLeft = 10;
     String word;
     ArrayList<Character> lettersGuessed = new ArrayList<Character>();
-    public Game(WordChooser chooser) {
+    Masker masker;
+    public Game(WordChooser chooser, Masker masker) {
         word = chooser.getRandomWordFromDictionary();
+        this.masker = masker;
     }
     public static void main(String[] args) {
 
     }
     public String getWordToGuess() {
-        StringBuilder sb = new StringBuilder();
-
-        for (int i = 0; i < this.word.length(); i++) {
-            Character currentLetter = word.charAt(i);
-            if (i == 0) {
-                // first letter is always shown
-                sb.append(currentLetter);
-            } else {
-                // show letter only if it was already guessed
-                if (lettersGuessed.indexOf(currentLetter) != -1) {
-                    sb.append(currentLetter);
-                } else {
-                    sb.append("_");
-                }
-            }
-        }
-        return sb.toString();
+        return masker.getMaskedWord(word, lettersGuessed);
     }
 
     public Boolean guessLetter(Character letter) {
