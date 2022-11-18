@@ -28,6 +28,11 @@ public class App {
 
             if (result) {
                 System.out.println("Right!");
+                if (game.isGameWon()) {
+                    System.out.println("Yeaaah! you won!");
+
+                    break;
+                }
             } else {
                 System.out.println("Wrong...");
             }

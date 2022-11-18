@@ -105,4 +105,30 @@ public class GameTest {
         game.guessLetter('X');
         assertEquals(game.isGameLost(), false);
     }
+    @Test public void winGameIfAllLettersGuess() {
+        WordChooser mockedChooser = mock(WordChooser.class);
+        when(mockedChooser.getRandomWordFromDictionary()).thenReturn("DEVELOPER");
+
+        Game game = new Game(mockedChooser);
+        game.guessLetter('E');
+        game.guessLetter('V');
+        game.guessLetter('L');
+        game.guessLetter('O');
+        game.guessLetter('P');
+        game.guessLetter('R');
+
+        assertEquals(game.isGameWon(), true);
+    }
+    @Test public void shouldReturnFalseIfNotAllLettersGuessed() {
+        WordChooser mockedChooser = mock(WordChooser.class);
+        when(mockedChooser.getRandomWordFromDictionary()).thenReturn("DEVELOPER");
+
+        Game game = new Game(mockedChooser);
+        game.guessLetter('E');
+        game.guessLetter('V');
+        game.guessLetter('L');
+
+        assertEquals(game.isGameWon(), false);
+    }
+
 }
