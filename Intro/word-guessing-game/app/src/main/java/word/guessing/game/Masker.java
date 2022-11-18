@@ -5,10 +5,10 @@ import java.util.ArrayList;
 public class Masker {
 
    String word;
-    public String getMaskedWord(String word, ArrayList<Character> lettersGuessed) {
+   public String getMaskedWord(String word, ArrayList<Character> lettersGuessed) {
         StringBuilder sb = new StringBuilder();
 
-        for (int i = 0; i < this.word.length(); i++) {
+        for (int i = 0; i < word.length(); i++) {
             Character currentLetter = word.charAt(i);
             if (i == 0) {
                 sb.append(currentLetter);
